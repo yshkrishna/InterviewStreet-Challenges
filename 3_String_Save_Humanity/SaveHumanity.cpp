@@ -24,13 +24,14 @@ bool parse_arguments(int argc, char** argv, string& input_file)
 
 	cmdline_opts.add(input_opts);
 
-	try{
+	try
+  {
 		bpo::variables_map var_map;
 		bpo::store(
 		  bpo::command_line_parser(argc,argv).
 			options(cmdline_opts).
 			run(),var_map
-		 );
+		);
 		bpo::notify(var_map);
 
 		if(var_map.count("help"))
@@ -38,19 +39,19 @@ bool parse_arguments(int argc, char** argv, string& input_file)
 			cout << cmdline_opts << endl;
 			return false;
 		}
-
 		return true;
 	}
-		catch(exception& e)
-		{
-			cout << e.what() << endl;
-			return false;
-		}
+
+  catch(exception& e)
+  {
+		cout << e.what() << endl;
+		return false;
+	}
 }
 void solution(const string &patient_dna, const string &virus_dna)
 {
 	ostringstream oss;
-	string comp = "";
+	string comp;
 	int error_counter;
 	unsigned int virus_size = virus_dna.size();
 
@@ -82,9 +83,9 @@ void solution(const string &patient_dna, const string &virus_dna)
 
 int main(int argc, char** argv)
 {
-	// Parse the arguments passed to the program
+  // Parse the arguments passed to the program
   // obtain the input filename
-	string input_file="";
+	string input_file;
 	if(! parse_arguments(argc, argv, input_file))
 	{
 		return ARGUMENT_ERROR;
@@ -94,9 +95,8 @@ int main(int argc, char** argv)
 	string virus_dna;
 
 	// Executing using an input file
-	if(input_file!="")
+	if(!input_file.empty())
 	{
-//    ifstream myfile(input_file);
     ifstream myfile(input_file.c_str());
     int cases;
     if(myfile.is_open())
@@ -136,7 +136,7 @@ int main(int argc, char** argv)
       return TBOUNDS_ERROR;
     }
 
-		for(i=0;i<cases;i++)
+		for(i=0;i<cases;++i)
 		{
 			cin >> patient_dna;
 			cin >> virus_dna;
