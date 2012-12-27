@@ -5,10 +5,9 @@
 
 using namespace std;
 
-string comp = "";
-
 void solution(const string &patient_dna, const string &virus_dna)
 {
+	string comp = "";
 	int error_counter;
 	int number_of_matching=0;
 	int first_position=0;
