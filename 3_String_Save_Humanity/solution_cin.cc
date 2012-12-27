@@ -9,16 +9,16 @@ using namespace std;
 void solution(const string &patient_dna, const string &virus_dna)
 {
 	ostringstream oss;
-	string output = "";
 	string comp = "";
 	int error_counter;
+	virus_size = virus_dna.size();
 
-	for(unsigned int i=0;i<=patient_dna.size()-virus_dna.size();++i)
+	for(unsigned int i=0;i<=patient_dna.size()-virus_size;++i)
 	{
 		error_counter=0;
-		comp = patient_dna.substr(i,virus_dna.size());
+		comp = patient_dna.substr(i,virus_size));
 		
-		for(unsigned int j=0;j<virus_dna.size();++j)
+		for(unsigned int j=0;j<virus_size;++j)
 		{
 			if(comp.at(j)!=virus_dna.at(j))
 			{
