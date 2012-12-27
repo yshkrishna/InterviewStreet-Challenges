@@ -13,7 +13,7 @@ void solution(const string &patient_dna, const string &virus_dna)
 	string comp = "";
 	int error_counter;
 
-	for(unsigned int i=0;i<patient_dna.size()-virus_dna.size();++i)
+	for(unsigned int i=0;i<=patient_dna.size()-virus_dna.size();++i)
 	{
 		error_counter=0;
 		comp = patient_dna.substr(i,virus_dna.size());
