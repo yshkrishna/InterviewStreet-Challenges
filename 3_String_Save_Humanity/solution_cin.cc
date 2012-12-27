@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #define	INPUT_FILE "input.txt"
 
@@ -7,10 +8,10 @@ using namespace std;
 
 void solution(const string &patient_dna, const string &virus_dna)
 {
+	ostringstream oss;
+	string output = "";
 	string comp = "";
 	int error_counter;
-	int number_of_matching=0;
-	int first_position=0;
 
 	for(unsigned int i=0;i<patient_dna.size()-virus_dna.size();++i)
 	{
@@ -29,23 +30,12 @@ void solution(const string &patient_dna, const string &virus_dna)
 				break;
 			}
 		}
-		if(number_of_matching==0)
-		{
-			first_position=i;
-		}
 		if(error_counter<=1)
 		{
-			number_of_matching++;
+			oss << i << " ";
 		}
 	}
-	if(number_of_matching!=0)
-	{
-		cout<<first_position<<" "<<number_of_matching<<endl;
-	}
-	else
-	{
-		cout << endl;
-	}
+	cout << oss.str() << endl;
 }
 
 int main()
