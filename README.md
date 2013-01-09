@@ -5,3 +5,4 @@ InterviewStreet-Challenges
 
 1. **String Reduction:** *Language:* Java, *Test Cases Passed:* 10/10
 2. **String Similarity:** *Language:* Java, *Test Cases Passed:* 10/10
+3. **String Save Humanity:** *Language:* Java, *Test Cases Passed:* 5/10 - Need to improve efficiency
